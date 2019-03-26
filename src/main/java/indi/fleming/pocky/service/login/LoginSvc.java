@@ -4,6 +4,7 @@ import indi.fleming.pocky.domain.Message;
 
 public interface LoginSvc {
 
-    Message checkLoginInfo(String username, String password);
+    Message checkInfo(String username, String password);
+    Message addUser(String username, String password, String role_code, String user_info);
 
 }

@@ -15,7 +15,7 @@ public class LoginSvcImpl implements LoginSvc{
     Message message;
 
     @Override
-    public Message checkLoginInfo(String username, String password) {
+    public Message checkInfo(String username, String password) {
 
         User user = loginMapper.selectUser(username);
 
@@ -39,6 +39,16 @@ public class LoginSvcImpl implements LoginSvc{
             message.setMessageState("success");
             message.setMessageData("");
         }
+
+        return message;
+    }
+
+    @Override
+    public Message addUser(String username, String password, String role_code, String user_info) {
+
+        int i = loginMapper.insertUser(username, password, role_code, user_info);
+        message.setMessageState("success");
+        message.setMessageData(i+"");
 
         return message;
     }
