@@ -1,10 +1,14 @@
 package indi.fleming.pocky.service.login;
 
+import com.google.gson.Gson;
+import indi.fleming.pocky.domain.Group;
 import indi.fleming.pocky.domain.Message;
 import indi.fleming.pocky.domain.User;
 import indi.fleming.pocky.mapper.login.LoginMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class LoginSvcImpl implements LoginSvc{
@@ -13,6 +17,8 @@ public class LoginSvcImpl implements LoginSvc{
     LoginMapper loginMapper;
     @Autowired
     Message message;
+    @Autowired
+    Gson gson;
 
     @Override
     public Message checkInfo(String username, String password) {
@@ -34,10 +40,10 @@ public class LoginSvcImpl implements LoginSvc{
             message.setMessageState("fail");
             message.setMessageData("data error");
 
-        // alright return roleCode for router
+        // alright return user json string for router
         } else {
             message.setMessageState("success");
-            message.setMessageData(user.getRole_code());
+            message.setMessageData(gson.toJson(user));
         }
 
         return message;
@@ -51,6 +57,12 @@ public class LoginSvcImpl implements LoginSvc{
         message.setMessageData(i+"");
 
         return message;
+    }
+
+    @Override
+    public List<Group> fetchGroupList() {
+        List<Group> groupList = loginMapper.selectGroupList();
+        return groupList;
     }
 
 }
