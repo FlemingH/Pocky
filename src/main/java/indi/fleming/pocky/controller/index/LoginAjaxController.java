@@ -25,8 +25,9 @@ public class LoginAjaxController {
     public Message addUser(@RequestParam("username") String username,
                            @RequestParam("password") String password,
                            @RequestParam("role_code") String role_code,
+                           @RequestParam("group_code") String group_code,
                            @RequestParam("user_info") String user_info) {
-        Message message = loginSvc.addUser(username, password, role_code, user_info);
+        Message message = loginSvc.addUser(username, password, role_code, group_code, user_info);
         return message;
     }
 }

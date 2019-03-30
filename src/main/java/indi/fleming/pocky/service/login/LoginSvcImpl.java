@@ -34,19 +34,19 @@ public class LoginSvcImpl implements LoginSvc{
             message.setMessageState("fail");
             message.setMessageData("data error");
 
-        // alright
+        // alright return roleCode for router
         } else {
             message.setMessageState("success");
-            message.setMessageData("");
+            message.setMessageData(user.getRole_code());
         }
 
         return message;
     }
 
     @Override
-    public Message addUser(String username, String password, String role_code, String user_info) {
+    public Message addUser(String username, String password, String role_code, String group_code, String user_info) {
 
-        int i = loginMapper.insertUser(username, password, role_code, user_info);
+        int i = loginMapper.insertUser(username, password, role_code, group_code, user_info);
         message.setMessageState("success");
         message.setMessageData(i+"");
 

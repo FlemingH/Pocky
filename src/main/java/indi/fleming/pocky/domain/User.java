@@ -7,8 +7,9 @@ public class User {
 
     private String username;
     private String password;
-    private String roleCode;
-    private String userInfo;
+    private String role_code;
+    private String group_code;
+    private String user_info;
 
     public String getUsername() {
         return username;
@@ -26,19 +27,27 @@ public class User {
         this.password = password;
     }
 
-    public String getRoleCode() {
-        return roleCode;
+    public String getRole_code() {
+        return role_code;
     }
 
-    public void setRoleCode(String roleCode) {
-        this.roleCode = roleCode;
+    public void setRole_code(String role_code) {
+        this.role_code = role_code;
     }
 
-    public String getUserInfo() {
-        return userInfo;
+    public String getUser_info() {
+        return user_info;
     }
 
-    public void setUserInfo(String userInfo) {
-        this.userInfo = userInfo;
+    public void setUser_info(String user_info) {
+        this.user_info = user_info;
+    }
+
+    public String getGroup_code() {
+        return group_code;
+    }
+
+    public void setGroup_code(String group_code) {
+        this.group_code = group_code;
     }
 }

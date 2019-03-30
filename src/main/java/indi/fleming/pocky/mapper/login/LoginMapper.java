@@ -12,12 +12,13 @@ public interface LoginMapper {
     @Select("select * from user where username = #{username}")
     User selectUser(String username);
 
-    @Insert({"insert into user(username, password, role_code, user_info) " +
-            "values(#{username}, #{password}, #{role_code}, #{user_info})"})
+    @Insert({"insert into user(username, password, role_code, group_code, user_info) " +
+            "values(#{username}, #{password}, #{role_code}, #{group_code}, #{user_info})"})
     // @Param use for multi-param
     int insertUser(@Param("username")String username,
                    @Param("password")String password,
                    @Param("role_code")String role_code,
+                   @Param("group_code")String group_code,
                    @Param("user_info")String user_info);
 
 }
