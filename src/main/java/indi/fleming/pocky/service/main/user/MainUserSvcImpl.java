@@ -1,6 +1,7 @@
 package indi.fleming.pocky.service.main.user;
 
 import indi.fleming.pocky.domain.Message;
+import indi.fleming.pocky.domain.Role;
 import indi.fleming.pocky.domain.User;
 import indi.fleming.pocky.mapper.user.MainUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,12 @@ public class MainUserSvcImpl implements MainUserSvc{
     public List<User> fetchUserList() {
         List<User> userList = mainUserMapper.selectUserList();
         return userList;
+    }
+
+    @Override
+    public List<Role> fetchRoleList() {
+        List<Role> roleList = mainUserMapper.selectRoleList();
+        return roleList;
     }
 
     @Override

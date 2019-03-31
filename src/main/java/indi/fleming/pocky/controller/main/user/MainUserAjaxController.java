@@ -1,6 +1,7 @@
 package indi.fleming.pocky.controller.main.user;
 
 import indi.fleming.pocky.domain.Message;
+import indi.fleming.pocky.domain.Role;
 import indi.fleming.pocky.domain.User;
 import indi.fleming.pocky.service.main.user.MainUserSvc;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,12 @@ public class MainUserAjaxController {
     public List<User> fetchUserList() {
         List<User> userList = mainUserSvc.fetchUserList();
         return userList;
+    }
 
+    @RequestMapping(value = "/pejoy/main/user/fetchRoleList", method = RequestMethod.POST)
+    public List<Role> fetchRoleList() {
+        List<Role> roleList = mainUserSvc.fetchRoleList();
+        return roleList;
     }
 
     @RequestMapping(value = "/pejoy/main/user/deleteUser", method = RequestMethod.POST)

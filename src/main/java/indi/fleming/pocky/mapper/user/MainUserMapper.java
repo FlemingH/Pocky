@@ -1,6 +1,7 @@
 package indi.fleming.pocky.mapper.user;
 
 import indi.fleming.pocky.domain.Group;
+import indi.fleming.pocky.domain.Role;
 import indi.fleming.pocky.domain.User;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
@@ -34,5 +35,8 @@ public interface MainUserMapper {
 
     @Select("select * from user_group")
     List<Group> selectGroupList();
+
+    @Select("select * from role")
+    List<Role> selectRoleList();
 
 }
