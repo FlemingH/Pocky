@@ -21,9 +21,18 @@ public class MainUserAjaxController {
     MainUserSvc mainUserSvc;
 
     @RequestMapping(value = "/pejoy/main/user/modifyUserInfo", method = RequestMethod.POST)
-    public Message addUser(@RequestParam("username") String username,
-                           @RequestParam("user_info") String user_info) {
-        Message message = mainUserSvc.modifyUser(username, user_info);
+    public Message modifyUserInfo(@RequestParam("username") String username,
+                                  @RequestParam("user_info") String user_info) {
+        Message message = mainUserSvc.modifyUserInfo(username, user_info);
+        return message;
+    }
+
+    @RequestMapping(value = "/pejoy/main/user/modifyUser", method = RequestMethod.POST)
+    public Message modifyUser(@RequestParam("username") String username,
+                              @RequestParam("password") String password,
+                              @RequestParam("role_code") String role_code,
+                              @RequestParam("group_code") String group_code) {
+        Message message = mainUserSvc.modifyUser(username, password, role_code, group_code);
         return message;
     }
 

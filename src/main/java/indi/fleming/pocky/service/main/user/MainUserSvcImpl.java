@@ -18,9 +18,19 @@ public class MainUserSvcImpl implements MainUserSvc{
     Message message;
 
     @Override
-    public Message modifyUser(String username, String user_info) {
+    public Message modifyUserInfo(String username, String user_info) {
 
-        int i = mainUserMapper.updateUser(username, user_info);
+        int i = mainUserMapper.updateUserInfo(username, user_info);
+        message.setMessageState("success");
+        message.setMessageData(i+"");
+
+        return message;
+    }
+
+    @Override
+    public Message modifyUser(String username, String password, String role_code, String group_code) {
+
+        int i = mainUserMapper.updateUser(username, password, role_code, group_code);
         message.setMessageState("success");
         message.setMessageData(i+"");
 

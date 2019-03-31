@@ -24,8 +24,17 @@ public interface MainUserMapper {
     int deleteUser(@Param("username")String username);
 
     @Update("update user set user_info = #{user_info} where username = #{username}")
+    int updateUserInfo(@Param("username")String username,
+                       @Param("user_info")String user_info);
+
+    @Update("update user set password = #{password}, " +
+                            "role_code = #{role_code}, " +
+                            "group_code = #{group_code} " +
+                            "where username = #{username}")
     int updateUser(@Param("username")String username,
-                   @Param("user_info")String user_info);
+                   @Param("password")String password,
+                   @Param("role_code")String role_code,
+                   @Param("group_code")String group_code);
 
     @Select("select * from user where username = #{username}")
     User selectUser(String username);
