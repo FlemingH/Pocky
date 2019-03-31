@@ -32,4 +32,14 @@ public class MainUserSvcImpl implements MainUserSvc{
         return userList;
     }
 
+    @Override
+    public Message removeUser(String username) {
+
+        int i = mainUserMapper.deleteUser(username);
+        message.setMessageData(i+"");
+        message.setMessageState("success");
+
+        return message;
+    }
+
 }

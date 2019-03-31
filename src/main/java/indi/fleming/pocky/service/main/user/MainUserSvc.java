@@ -9,5 +9,6 @@ public interface MainUserSvc {
 
     Message modifyUser(String username, String user_info);
     List<User> fetchUserList();
+    Message removeUser(String username);
 
 }

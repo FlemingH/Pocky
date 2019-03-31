@@ -1,6 +1,7 @@
 package indi.fleming.pocky.mapper.main.user;
 
 import indi.fleming.pocky.domain.User;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -17,5 +18,8 @@ public interface MainUserMapper {
 
     @Select("select * from user")
     List<User> selectUserList();
+
+    @Delete("delete from user where username = #{username}")
+    int deleteUser(@Param("username")String username);
 
 }

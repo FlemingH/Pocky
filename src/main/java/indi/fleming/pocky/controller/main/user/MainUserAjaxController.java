@@ -33,4 +33,10 @@ public class MainUserAjaxController {
 
     }
 
+    @RequestMapping(value = "/pejoy/main/user/deleteUser", method = RequestMethod.POST)
+    public Message deleteUser(@RequestParam("username") String username) {
+        Message message = mainUserSvc.removeUser(username);
+        return message;
+    }
+
 }
