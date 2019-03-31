@@ -1,9 +1,12 @@
 package indi.fleming.pocky.service.main.user;
 
 import indi.fleming.pocky.domain.Message;
+import indi.fleming.pocky.domain.User;
 import indi.fleming.pocky.mapper.main.user.MainUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MainUserSvcImpl implements MainUserSvc{
@@ -21,6 +24,12 @@ public class MainUserSvcImpl implements MainUserSvc{
         message.setMessageData(i+"");
 
         return message;
+    }
+
+    @Override
+    public List<User> fetchUserList() {
+        List<User> userList = mainUserMapper.selectUserList();
+        return userList;
     }
 
 }
