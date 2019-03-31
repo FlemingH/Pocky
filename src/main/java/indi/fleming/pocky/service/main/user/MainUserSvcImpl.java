@@ -2,7 +2,7 @@ package indi.fleming.pocky.service.main.user;
 
 import indi.fleming.pocky.domain.Message;
 import indi.fleming.pocky.domain.User;
-import indi.fleming.pocky.mapper.main.user.MainUserMapper;
+import indi.fleming.pocky.mapper.user.MainUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

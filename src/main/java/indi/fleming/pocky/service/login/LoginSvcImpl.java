@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import indi.fleming.pocky.domain.Group;
 import indi.fleming.pocky.domain.Message;
 import indi.fleming.pocky.domain.User;
-import indi.fleming.pocky.mapper.login.LoginMapper;
+import indi.fleming.pocky.mapper.user.MainUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class LoginSvcImpl implements LoginSvc{
 
     @Autowired
-    LoginMapper loginMapper;
+    MainUserMapper mainUserMapper;
     @Autowired
     Message message;
     @Autowired
@@ -23,7 +23,7 @@ public class LoginSvcImpl implements LoginSvc{
     @Override
     public Message checkInfo(String username, String password) {
 
-        User user = loginMapper.selectUser(username);
+        User user = mainUserMapper.selectUser(username);
 
         // no this user
         if(user == null) {
@@ -52,7 +52,7 @@ public class LoginSvcImpl implements LoginSvc{
     @Override
     public Message addUser(String username, String password, String role_code, String group_code, String user_info) {
 
-        int i = loginMapper.insertUser(username, password, role_code, group_code, user_info);
+        int i = mainUserMapper.insertUser(username, password, role_code, group_code, user_info);
         message.setMessageState("success");
         message.setMessageData(i+"");
 
@@ -61,7 +61,7 @@ public class LoginSvcImpl implements LoginSvc{
 
     @Override
     public List<Group> fetchGroupList() {
-        List<Group> groupList = loginMapper.selectGroupList();
+        List<Group> groupList = mainUserMapper.selectGroupList();
         return groupList;
     }
 

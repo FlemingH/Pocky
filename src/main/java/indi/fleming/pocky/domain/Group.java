@@ -1,5 +1,8 @@
 package indi.fleming.pocky.domain;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Group {
 
     private String group_code;
